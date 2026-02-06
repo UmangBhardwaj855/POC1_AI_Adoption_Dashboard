@@ -53,6 +53,7 @@ app.add_middleware(
 )
 
 # Include API routers
+
 app.include_router(dashboard.router, prefix="/api/dashboard", tags=["Dashboard"])
 app.include_router(users.router, prefix="/api/users", tags=["Users"])
 app.include_router(metrics.router, prefix="/api/metrics", tags=["Metrics"])
