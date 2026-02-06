@@ -14,10 +14,6 @@ import sys
 import os
 import argparse
 from datetime import datetime, date, timedelta
-from dotenv import load_dotenv
-
-# Load environment variables
-load_dotenv()
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -28,7 +24,7 @@ from app.database.models import Organization, User, DailyMetrics, UserActivityLo
 from app.integrations.github_copilot import GitHubCopilotClientSync
 
 # Database connection
-DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./data/metrics.db")
+DATABASE_URL = "mysql+pymysql://root:Tango%404556@localhost:3306/ai_adoption_db"
 engine = create_engine(DATABASE_URL)
 Session = sessionmaker(bind=engine)
 
