@@ -1,0 +1,6 @@
+{
+    "name": "poc-1-ai-adoption-dashboard-client",
+    "buildCommand": "npm run build",
+    "outputDirectory": "dist",
+    "framework": "vite"
+}
