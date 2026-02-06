@@ -1,31 +1,10 @@
 {
-    "version": 2,
-    "builds": [
+    "buildCommand": "cd client && npm install && npm run build",
+    "outputDirectory": "client/dist",
+    "routes": [
         {
-            "src": "api/vercel_app.py",
-            "use": "@vercel/python",
-            "config": {
-                "includeFiles": [
-                    "server/**"
-                ]
-            }
-        },
-        {
-            "src": "client/package.json",
-            "use": "@vercel/static-build",
-            "config": {
-                "distDir": "dist"
-            }
-        }
-    ],
-    "rewrites": [
-        {
-            "source": "/api/(.*)",
-            "destination": "/api/vercel_app.py"
-        },
-        {
-            "source": "/(.*)",
-            "destination": "/client/index.html"
+            "src": "/api/(.*)",
+            "dest": "/api/vercel_app.py"
         }
     ]
 }
