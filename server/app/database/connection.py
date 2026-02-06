@@ -28,6 +28,12 @@ def get_engine():
             pool_recycle=3600,
             echo=False
         )
+    if DATABASE_URL.startswith("postgres"):
+        return create_engine(
+            DATABASE_URL,
+            pool_pre_ping=True,
+            echo=False
+        )
     # SQLite fallback
     return create_engine(
         DATABASE_URL,
