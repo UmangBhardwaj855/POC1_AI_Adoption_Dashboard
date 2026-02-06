@@ -37,16 +37,23 @@ app = FastAPI(
     lifespan=lifespan
 )
 
-# CORS middleware for React frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://localhost:3001", "http://localhost:5173"],
+    allow_origins=[
+        "http://localhost:3000",
+        "http://localhost:3001",
+        "http://localhost:5173",
+        "https://poc-1-ai-adoption-dashboard-client.vercel.app",
+        "https://poc-1-ai-adoption-dashboa-git-master-umangbhardwaj855s-projects.vercel.app", 
+        "https://poc-1-ai-adoption-dashboard-client-on3l95swb.vercel.app"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
 # Include API routers
+
 app.include_router(dashboard.router, prefix="/api/dashboard", tags=["Dashboard"])
 app.include_router(users.router, prefix="/api/users", tags=["Users"])
 app.include_router(metrics.router, prefix="/api/metrics", tags=["Metrics"])
