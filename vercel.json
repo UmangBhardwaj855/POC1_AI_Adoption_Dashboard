@@ -1,14 +1,12 @@
 {
-    "functions": {
-        "api/vercel_app.py": {
-            "runtime": "python3.9",
-            "includeFiles": "server/**"
-        }
-    },
     "rewrites": [
         {
             "source": "/api/(.*)",
-            "destination": "/api/vercel_app.py"
+            "destination": "https://poc1-ai-adoption-dashboard.onrender.com/api/$1"
+        },
+        {
+            "source": "/(.*)",
+            "destination": "/index.html"
         }
     ]
 }
