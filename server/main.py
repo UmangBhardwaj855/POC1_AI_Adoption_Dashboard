@@ -79,6 +79,12 @@ def root():
         "health": "/api/health"
     }
 
+@app.get("/api/seed")
+def seed_db():
+    """Seed database with sample data (Temporary)"""
+    init_database()
+    return {"status": "Database seeded successfully"}
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
