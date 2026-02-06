@@ -1,4 +1,10 @@
 {
+    "functions": {
+        "api/vercel_app.py": {
+            "runtime": "python3.9",
+            "includeFiles": "server/**"
+        }
+    },
     "rewrites": [
         {
             "source": "/api/(.*)",
