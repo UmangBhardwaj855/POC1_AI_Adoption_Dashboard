@@ -1,0 +1,18 @@
+# Enforce LF line endings for consistency across Windows and Linux (Vercel)
+* text=auto
+
+# Explicitly use LF for source code to avoid Windows CRLF issues
+*.js text eol=lf
+*.jsx text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.json text eol=lf
+*.css text eol=lf
+*.scss text eol=lf
+*.html text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.py text eol=lf
+
+# Shell scripts must be LF
+*.sh text eol=lf

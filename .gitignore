@@ -1,0 +1,31 @@
+# Environment variables
+.env
+.env.*
+!.env.example
+.venv
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Node modules
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Build artifacts
+dist/
+build/
+.next/
+out/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# User specific
+client/.env
+server/.env
