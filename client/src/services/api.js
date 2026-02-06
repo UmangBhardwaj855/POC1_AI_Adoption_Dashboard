@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: 'https://poc1-ai-adoption-dashboard.onrender.com/api',
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json'
