@@ -4,6 +4,7 @@ import Dashboard from './components/Dashboard';
 import UsersPage from './components/UsersPage';
 import MetricsPage from './components/MetricsPage';
 import SettingsPage from './components/SettingsPage';
+import { Menu, X } from 'lucide-react';
 import './index.css';
 
 // AI-themed background videos (free to use)
@@ -15,6 +16,7 @@ const VIDEO_SOURCES = [
 
 function App() {
   const [activePage, setActivePage] = useState('dashboard');
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const renderPage = () => {
     switch (activePage) {
@@ -29,6 +31,11 @@ function App() {
       default:
         return <Dashboard />;
     }
+  };
+
+  const handleNavigate = (page) => {
+    setActivePage(page);
+    setSidebarOpen(false); // Close sidebar on mobile after navigation
   };
 
   return (
@@ -64,7 +71,26 @@ function App() {
         <div className="orb orb-3"></div>
       </div>
 
-      <Sidebar activePage={activePage} onNavigate={setActivePage} />
+      {/* Mobile Menu Button */}
+      <button 
+        className="mobile-menu-btn"
+        onClick={() => setSidebarOpen(!sidebarOpen)}
+        aria-label="Toggle menu"
+      >
+        {sidebarOpen ? <X size={24} /> : <Menu size={24} />}
+      </button>
+
+      {/* Mobile Overlay */}
+      <div 
+        className={`mobile-overlay ${sidebarOpen ? 'active' : ''}`}
+        onClick={() => setSidebarOpen(false)}
+      />
+
+      <Sidebar 
+        activePage={activePage} 
+        onNavigate={handleNavigate}
+        isOpen={sidebarOpen}
+      />
       <main className="main-content">
         {renderPage()}
       </main>

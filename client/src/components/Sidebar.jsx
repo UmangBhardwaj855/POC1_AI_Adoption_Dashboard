@@ -11,11 +11,11 @@ const navItems = [
   { id: 'settings', label: 'Settings', icon: Settings },
 ];
 
-function Sidebar({ activePage, onNavigate }) {
+function Sidebar({ activePage, onNavigate, isOpen }) {
   const [isHovered, setIsHovered] = useState(null);
 
   return (
-    <aside className="sidebar">
+    <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
       {/* Logo Section */}
       <div className="sidebar-header">
         <div className="logo-container">
